@@ -1,0 +1,17 @@
+li.active{
+    background-color:#f07e20;
+}
+li.active a div div span.text-gray-600{
+    color:white
+}
+li.active:hover{
+    background-color:grey;
+}
+ul li:hover{
+    background-color:grey;
+   }
+li.active a div div span.text-gray-600:hover{
+    --text-opacity: 1;
+    color: #718096;
+    color: rgba(113,128,150,var(--text-opacity));
+}
