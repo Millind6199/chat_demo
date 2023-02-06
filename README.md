@@ -16,26 +16,32 @@ Fire commands in terminal :
 #####  Step : 1
 
 ```
-git clone https://github.com/Manish0511/chat-demo.git
+git clone https://github.com/Millind6199/chat_demo.git
 ```
 ##### Step : 2
 
 ```
-cd  chat-demo
+cd  chat_demo
 ```
 ##### Step 3
+
+```
+git checkout master
+```
+
+##### Step 4
 
 ```
 cp .env.example .env
 ```
 Create db on your system and update database details in .env file
-##### Step : 4
+##### Step : 5
 
 ```
 composer install
 ```
 
-##### Step : 5
+##### Step : 6
 ```
 php artisan migrate
 ```
