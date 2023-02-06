@@ -7,11 +7,13 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link href="{{ asset('css/style.css')}}" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{{ url('js/chat.js')}}"></script>
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}

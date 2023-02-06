@@ -6,6 +6,21 @@ window.addEventListener("beforeunload", function (e) {
     return undefined;
 });
 
+function setActive(id){
+    $('li').removeClass('active');
+    $('#user_'+id).addClass('active')
+}
+
+function showDeleteButton(){
+    count = $("#showDelete").data("count")
+    if(count%2 == 0){
+        $('.delete-button').show();
+    }else{
+        $('.delete-button').hide();
+    }
+
+    $('#showDelete').data('count', count + 1);
+}
 
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string

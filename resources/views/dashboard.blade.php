@@ -14,10 +14,10 @@
             </div>
         </div>
     </div> --}}
-    <div class="container mx-auto">
+    <div class="container mx-auto mt-5" style="max-width: 100% !important;">
       <div class="min-w-full border rounded md:grid md:grid-cols-3">
         <div class="border-r border-gray-300 md:col-span-1">
-          <div class="mx-3 my-3 border-b border-gray-300">
+          <!-- <div class="mx-3 my-3 border-b border-gray-300">
             <div class="relative text-gray-600">
               <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,7 +28,7 @@
               <input type="search" class="block w-full py-2 pl-10 bg-gray-100 rounded outline-none" name="search"
                 placeholder="Search" required />
             </div>
-          </div>
+          </div> -->
 
           <ul id="user-list" class="overflow-auto h-[32rem]">
             <h2 class="my-2 mb-2 ml-2 text-lg text-gray-600">Chats</h2>
@@ -81,24 +81,26 @@
             <div class="relative flex items-center p-3 border-b border-gray-300">
               <img class="object-cover w-10 h-10 rounded-full"
                 src="no-user-image-icon-27.jpg" alt="username" />
-              <span class="block ml-2 font-bold text-gray-600" id="selected-user-name">Emma</span>
-              <span class="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3">
-              </span>
+              <span class="block ml-2 font-bold text-gray-600" id="selected-user-name" style="width: 90%;">Emma</span>
+              <!-- <span class="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3" style="margin:20px 0 0 30px">
+              </span> -->
+              <img src="{{url('icons8-delete.svg')}}" id="showDelete" onclick="showDeleteButton()" style="margin-left: 560px;" title="Delete Message" data-count="0">
             </div>
+            
             <div class="relative w-full p-6 overflow-y-auto h-[40rem]">
               <ul class="space-y-2" id="message-box">
                 
               </ul>
             </div>
 
-            <div class="flex items-center justify-between w-full p-3 border-t border-gray-300 border-b border-gray-300">
+            <div class="flex items-center justify-between w-full p-3 border-t border-gray-300 border-b border-gray-300" style="position:fixed;bottom: 0;margin-bottom: 194px;width: 67%;">
                 <input type="text" placeholder="Message"
                 class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700"
                 name="message" id="message" required />
                 <input type="hidden" id="selected-user-id">
 
               <button type="submit" id="sendMessage">
-                <svg class="w-5 h-5 text-gray-500 origin-center transform rotate-90" xmlns="http://www.w3.org/2000/svg"
+                <svg class="w-5 h-5 text-green-600 origin-center transform rotate-90" xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20" fill="currentColor">
                   <path
                     d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
@@ -112,7 +114,7 @@
 
     {{-- template start  --}}
     <template id="user-template">
-        <li id="user_##id##" data-id="##id##" data-name="##name##" class="user-item">
+        <li id="user_##id##" data-id="##id##" data-name="##name##" class="user-item" onclick="setActive('##id##')">
           <a  class="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none">
             <img class="object-cover w-10 h-10 rounded-full"
               src="{{url('no-user-image-icon-27.jpg')}}" alt="##name##" />
@@ -128,17 +130,20 @@
     </template>
     <template id="received-message">
         <li class="flex justify-start">
-          <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
+          <div class="relative max-w-xl px-4 py-2 text-white rounded shadow" style="background: #f07e20;">
             <span class="block">##text##</span>
           </div>
         </li>
     </template>
     <template id="sent-message">
         <li class="flex justify-end" id="message_##id##" data-id="##id##">
-            <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
+            <div class="relative max-w-xl px-4 py-2 text-black-700 rounded shadow">
                 <span class="block">##text##</span>
             </div>
-            <button class="delete-button" onclick="deleteMessage('##id##')">
+            <div class="read-icon">
+            <img src="{{asset('images/read_icon.png')}}" style="width: 20px;margin: 20px 0 0 10px;display:none">
+          </div>
+            <button class="delete-button" onclick="deleteMessage('##id##')" style="display:none" >
                 <img src="{{url('icons8-delete.svg')}}" alt="delete" >
             </button>
         </li>
